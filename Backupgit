@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage ("Hacer directorio") {
+            
+            steps  {
+                
+                powershell "cd C:\\backupgit"
+                
+                powershell "mkdir backup_\$(get-date -f MM-dd-yyyy)"
+                
+                
+            }
+        }
+        stage ("Copiar archivo para backup") {
+            
+            steps {
+                powershell "xcopy C:\\Users\\Academia\\Documents\\academia-alan C:\\backupgit\\backup_\$(get-date -f MM-dd-yyyy)\\"
+            }
+        }
+    }
+}
