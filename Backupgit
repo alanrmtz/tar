@@ -16,7 +16,8 @@ pipeline {
             
             steps {
                 //powershell "xcopy C:\\Users\\Academia\\Documents\\academia-alan C:\\backupgit\\backup_\$(get-date -f MM-dd-yyyy)\\"
-                git clone https://github.com/alanrmtz/tar.git
+                powershell "cd C:\\backupgit\\backup_\$(get-date -f MM-dd-yyyy)\\"
+                powershell "git clone https://github.com/alanrmtz/tar.git"
             }
         }
     }
